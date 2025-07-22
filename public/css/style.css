@@ -1,0 +1,442 @@
+/* General Body Styles */
+:root {
+    --primary-color: #6f42c1; /* A deep, rich purple */
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-bg: #f8f9fa;
+    --dark-text: #343a40;
+    --light-text: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    font-size: 14px; /* Base font size */
+    line-height: 1.5;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+#wrapper {
+    display: flex;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin 0.25s ease-out;
+    background-color: var(--primary-color);
+    box-shadow: 2px 0 5px var(--shadow-light);
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 1rem 0.8rem; /* Reduced padding */
+    font-size: 1.2rem; /* Reduced font size */
+    color: var(--light-text);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#sidebar-wrapper .list-group-item {
+    color: var(--light-text);
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.4rem 0.8rem; /* Reduced padding */
+    font-size: 14px; /* Ensure text size */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly less opaque hover */
+    color: var(--light-text); /* Ensure good contrast */
+}
+
+#sidebar-wrapper .list-group-item i {
+    margin-right: 0.75rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+/* Top Navigation */
+.navbar {
+    background-color: var(--card-bg) !important;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 0.125rem 0.25rem var(--shadow-light);
+    padding: 0.4rem 1rem; /* Reduced padding */
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    font-size: 1.2rem; /* Reduced font size */
+}
+
+.navbar-nav .nav-link {
+    color: var(--dark-text) !important;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem; /* Reduced padding */
+    font-size: 14px; /* Ensure text size */
+    transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.dropdown-menu {
+    border-radius: 0.3rem; /* Reduced border-radius */
+    box-shadow: 0 0.2rem 0.5rem var(--shadow-light); /* Reduced shadow */
+    position: absolute; /* Ensure absolute positioning */
+    top: 100%; /* Position below the dropdown toggle */
+    left: auto; /* Reset left */
+    right: 0; /* Align to the right of the toggle */
+    width: auto; /* Only take necessary width */
+    min-width: unset; /* Remove Bootstrap's default min-width if it's too wide */
+}
+
+.dropdown-item {
+    color: var(--dark-text);
+    font-size: 14px; /* Ensure text size */
+    padding: 0.4rem 0.8rem; /* Reduced padding */
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/* Main Content Area */
+.container-fluid {
+    padding: 1rem; /* Reduced padding */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1rem; /* Reduced margin */
+}
+
+h1 {
+    font-size: 1.8rem; /* Reduced font size (max 2xl) */
+    text-align: center;
+    margin-bottom: 1.5rem; /* Reduced margin */
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 1.5rem; /* Reduced font size */
+}
+
+/* Cards */
+.card {
+    border: 1px solid var(--border-color); /* Added subtle border */
+    border-radius: 0.5rem; /* Reduced border-radius */
+    box-shadow: 0 0.2rem 0.5rem var(--shadow-light); /* Reduced shadow */
+    background-color: var(--card-bg);
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border-bottom: none;
+    border-top-left-radius: 0.5rem; /* Reduced border-radius */
+    border-top-right-radius: 0.5rem; /* Reduced border-radius */
+    padding: 0.8rem 1rem; /* Reduced padding */
+    font-size: 1.1rem; /* Reduced font size */
+    font-weight: 600;
+    text-align: center;
+}
+
+.card-body {
+    padding: 1rem; /* Reduced padding */
+}
+
+/* Forms */
+.form-label {
+    font-weight: 500;
+    color: var(--dark-text);
+    font-size: 14px; /* Ensure text size */
+}
+
+.form-control, .form-select {
+    border-radius: 0.3rem; /* Slightly smaller border-radius */
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem; /* Reduced padding (approx 4px y, 8px x) */
+    font-size: 14px; /* Ensure text size */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.25);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 0.3rem; /* Slightly smaller border-radius */
+    padding: 0.3rem 0.6rem; /* Further reduced padding */
+    font-size: 13px; /* Slightly smaller font size */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #5a35a3;
+    border-color: #5a35a3;
+    transform: translateY(-1px); /* Reduced lift */
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    transform: translateY(-1px); /* Reduced lift */
+}
+
+.btn-warning {
+    background-color: transparent; /* No background */
+    border-color: transparent; /* No border */
+    color: var(--warning-color); /* Icon color */
+    padding: 0.1rem 0.2rem; /* Very small padding */
+}
+
+.btn-warning:hover {
+    background-color: rgba(255, 193, 7, 0.1); /* Light background on hover */
+    border-color: transparent;
+    transform: translateY(0); /* No lift */
+}
+
+.btn-danger {
+    background-color: transparent; /* No background */
+    border-color: transparent; /* No border */
+    color: var(--danger-color); /* Icon color */
+    padding: 0.1rem 0.2rem; /* Very small padding */
+}
+
+.btn-danger:hover {
+    background-color: rgba(220, 53, 69, 0.1); /* Light background on hover */
+    border-color: transparent;
+    transform: translateY(0); /* No lift */
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    padding: 2px 4px; /* 2px y, 4px x padding */
+    font-size: 14px; /* 14px text size */
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-1px); /* Reduced lift */
+}
+
+.btn-info {
+    background-color: var(--info-color);
+    border-color: var(--info-color);
+}
+
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+    transform: translateY(-1px); /* Reduced lift */
+}
+
+/* Tables */
+.table {
+    border-radius: 0.3rem; /* Reduced border-radius */
+    overflow: hidden;
+    box-shadow: 0 0.1rem 0.3rem var(--shadow-light); /* Reduced shadow */
+    font-size: 14px; /* Ensure text size */
+}
+
+.table thead th {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border-bottom: none;
+    padding: 0.6rem 0.8rem; /* Reduced padding */
+    text-transform: uppercase;
+    font-size: 13px; /* Smaller font size for table headers */
+}
+
+.table tbody tr:hover {
+    background-color: #f2f2f2; /* Lighter hover effect */
+}
+
+.table td, .table th {
+    padding: 0.6rem 0.8rem; /* Reduced padding */
+    vertical-align: middle;
+    font-size: 14px; /* Ensure text size */
+}
+
+/* Menu Item Cards (for place_order.php) */
+.menu-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Further reduced min-width */
+    gap: 1rem; /* Reduced gap */
+    padding: 0.5rem; /* Reduced padding */
+}
+
+.menu-item-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+}
+
+.menu-item-card:hover {
+    transform: translateY(-4px); /* Reduced lift on hover */
+    box-shadow: 0 0.5rem 1rem var(--shadow-medium); /* Reduced shadow on hover */
+}
+
+.menu-item-card .card-img-top {
+    height: 150px; /* Reduced height */
+    object-fit: cover;
+    border-top-left-radius: calc(0.5rem - 1px); /* Adjusted border-radius */
+    border-top-right-radius: calc(0.5rem - 1px); /* Adjusted border-radius */
+}
+
+.menu-item-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.8rem; /* Reduced padding */
+}
+
+.menu-item-card .card-title {
+    color: var(--primary-color);
+    font-size: 1.1rem; /* Reduced font size */
+    font-weight: 600;
+}
+
+.menu-item-card .card-text {
+    font-size: 0.8rem; /* Further reduced font size */
+    color: #6c757d;
+}
+
+.menu-item-card .btn {
+    margin-top: auto; /* Pushes button to the bottom */
+}
+
+/* Toast Notifications */
+.toast-container {
+    z-index: 1080; /* Ensure toast is above other elements */
+}
+
+.toast {
+    border-radius: 0.3rem; /* Reduced border-radius */
+    box-shadow: 0 0.2rem 0.5rem var(--shadow-medium); /* Reduced shadow */
+    padding: 0.5rem 1rem; /* Reduced padding */
+    font-weight: 500;
+    font-size: 14px; /* Ensure text size */
+}
+
+.toast.bg-success {
+    background-color: var(--success-color) !important;
+}
+
+.toast.bg-danger {
+    background-color: var(--danger-color) !important;
+}
+
+.toast.bg-warning {
+    background-color: var(--warning-color) !important;
+    color: var(--dark-text) !important;
+}
+
+.toast.bg-info {
+    background-color: var(--info-color) !important;
+}
+
+.toast-body {
+    padding: 0.3rem 0.5rem; /* Reduced padding */
+}
+
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Login/Register Page Specific */
+.login-register-card {
+    max-width: 400px; /* Reduced max-width */
+    margin: 50px auto; /* Reduced margin */
+}
+
+.login-register-card .card-header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/* Back Link Style */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 8px; /* Padding as requested */
+    border-radius: 0.3rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.back-link:hover {
+    background-color: rgba(111, 66, 193, 0.1); /* Light primary color background on hover */
+    color: var(--primary-color);
+}
+
+.back-link i {
+    margin-right: 5px;
+}
